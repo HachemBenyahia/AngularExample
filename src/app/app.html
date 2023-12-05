@@ -3,8 +3,6 @@
 </header>
 
 <div id="content">
-    App content "router-outlet"
-
     <form id="form">
         <table>
             <thead>
@@ -44,8 +42,50 @@
         user.birthDate: {{ user.birthDate | date:'MM-dd-yyyy hh:mm:ss' }} (user.birthDate) <br/>
     </code>
 
+    <table id="users">
+        <tbody>
+            <tr>
+                <td colspan="4"><b>Users</b></td>
+            </tr>
+            <tr *ngFor="let user of users">
+                <td>{{ user.id }}</td>
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.birthDate | date:'MM-dd-yyyy hh:mm:ss' }}</td>
+            </tr>
+            <tr>
+                <td colspan="4"><b>Updated: {{ updatedUsersTime | date:'MM-dd-yyyy hh:mm:ss' }}</b></td>
+            </tr>
+        </tbody>
+    </table>
 
-    <router-outlet></router-outlet>
+    <table id="routes">
+        <tbody>
+            <tr>
+                <th>Route</th>
+                <th>Path</th>
+            </tr>
+            <tr>
+                <td>/</td>
+                <td><a href="/" alt="/">/</a></td>
+            </tr>
+            <tr>
+                <td>/settings</td>
+                <td><a href="/settings" alt="/settings">/settings</a></td>
+            </tr>
+            <tr>
+                <td>/settings/general</td>
+                <td><a href="/settings/general" alt="/settings/general">/settings/general</a></td>
+            </tr>
+            <tr>
+                <td>/settings/personal</td>
+                <td><a href="/settings/personal" alt="/settings/personal">/settings/personal</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- <div id="router-outlet"> -->
+        <router-outlet></router-outlet>
+    <!-- </div> -->
 </div>
 
 <footer>
